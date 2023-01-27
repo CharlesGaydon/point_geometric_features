@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Local variables
 PROJECT_NAME=pgeof
 PYTHON=3.8
@@ -52,11 +54,11 @@ source ${CONDA_DIR}/etc/profile.d/conda.sh
 conda activate ${PROJECT_NAME}
 
 # Dependencies
-conda install pip numpy -y
-conda install -c anaconda boost -y
-conda install -c omnia eigen3 -y
-conda install eigen -y
-conda install -c r libiconv -y
+mamba install pip numpy -y
+mamba install -c anaconda boost -y
+mamba install -c omnia eigen3 -y
+mamba install eigen -y
+mamba install -c r libiconv -y
 
 ln -s $CONDA_PREFIX/lib/python$PYTHON/site-packages/numpy/core/include/numpy $CONDA_PREFIX/include/numpy
 cd src
