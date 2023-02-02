@@ -25,6 +25,8 @@ Python wrapper around C++ helper to compute the following local geometric featur
 - volume
 - curvature
 
+FAISS is used to compute KNN fast. Support for GPU could be added with small effort
+A small `main.py` script helps to add computed features back to a LAS file.
 
 ## 🧱 Installation
 

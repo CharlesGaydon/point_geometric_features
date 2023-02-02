@@ -3,7 +3,7 @@
 set -e
 
 # Local variables
-PROJECT_NAME=pgeof
+PROJECT_NAME=pgeof_test
 PYTHON=3.8
 
 
@@ -28,7 +28,8 @@ echo
 echo "____________ Pick conda install _____________"
 echo
 # Recover the path to conda on your machine
-CONDA_DIR=`realpath /var/data/cgaydon/anaconda3`
+# CONDA_DIR=`realpath ~/anaconda3`
+CONDA_DIR=$(dirname $(dirname $(which conda)))
 
 while (test -z $CONDA_DIR) || [ ! -d $CONDA_DIR ]
 do
@@ -59,6 +60,8 @@ mamba install -c anaconda boost -y
 mamba install -c omnia eigen3 -y
 mamba install eigen -y
 mamba install -c r libiconv -y
+mamba install -c conda-forge faiss-cpu -y
+pip install laspy[lazrs,laszip]==2.1.*
 
 ln -s $CONDA_PREFIX/lib/python$PYTHON/site-packages/numpy/core/include/numpy $CONDA_PREFIX/include/numpy
 cd src

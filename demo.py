@@ -19,16 +19,16 @@ verbose = True
 #     Flattened neighbor indices. Make sure those are all positive, '-1' indices
 #     will either crash or silently compute incorrect features
 # nn_ptr: [N+1] array
-#     Pointers wrt `nn`. More specifically, the neighbors of point `i` are 
+#     Pointers wrt `nn`. More specifically, the neighbors of point `i` are
 #     `nn[nn_ptr[i]:nn_ptr[i + 1]]`
 xyz = np.random.rand(num_points, 3)
 nn_ptr = np.r_[0, np.random.randint(low=0, high=10, size=num_points).cumsum()]
 nn = np.random.randint(low=0, high=num_points, size=nn_ptr[-1])
 
 # Make sure xyz are float32 and nn and nn_ptr are uint32
-xyz = xyz.astype('float32')
-nn_ptr = nn_ptr.astype('uint32')
-nn = nn.astype('uint32')
+xyz = xyz.astype("float32")
+nn_ptr = nn_ptr.astype("uint32")
+nn = nn.astype("uint32")
 
 # Make sure arrays are contiguous (C-order) and not Fortran-order
 xyz = np.ascontiguousarray(xyz)
@@ -50,5 +50,5 @@ nn = np.ascontiguousarray(nn)
 geof = pgeof.compute_geometric_features(xyz, nn, nn_ptr, k_min, verbose)
 
 # WARNING: we can trust the direction of the eigenvectors but their senses might
-# fluctuate. So you may want to define a standard sense for your normals (eg 
+# fluctuate. So you may want to define a standard sense for your normals (eg
 # normals all expressed with positive z-coordinates)
