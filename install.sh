@@ -28,7 +28,7 @@ echo
 echo "____________ Pick conda install _____________"
 echo
 # Recover the path to conda on your machine
-CONDA_DIR=`realpath ~/anaconda3`
+CONDA_DIR=`realpath /var/data/cgaydon/anaconda3`
 
 while (test -z $CONDA_DIR) || [ ! -d $CONDA_DIR ]
 do
