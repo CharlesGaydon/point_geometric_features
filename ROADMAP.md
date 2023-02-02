@@ -11,3 +11,5 @@ ROADMAP:
 
 Ressources:
 - [] https://towardsdatascience.com/make-knn-300-times-faster-than-scikit-learns-in-20-lines-5e29d74e76bb : using FAISS, CPU and GPU support.
+- conda install -c conda-forge faiss-cpu (CPU only) or conda install -c conda-forge faiss-gpu (with GPU+CPU)
+- 

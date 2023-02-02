@@ -22,6 +22,8 @@ verbose = True
 #     Pointers wrt `nn`. More specifically, the neighbors of point `i` are 
 #     `nn[nn_ptr[i]:nn_ptr[i + 1]]`
 xyz = np.random.rand(num_points, 3)
+
+
 nn_ptr = np.r_[0, np.random.randint(low=0, high=10, size=num_points).cumsum()]
 nn = np.random.randint(low=0, high=num_points, size=nn_ptr[-1])
 
